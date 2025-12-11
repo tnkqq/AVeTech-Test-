@@ -114,3 +114,15 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 RedisHost: str 
 RedisPort: int
 ```
+
+
+# docs 
+
+### http://localhost:8000/docs
+
+![alt text](image.png)
+
+# ps
+реализован endpoint `/redis`
+
+![alt text](image-1.png)
