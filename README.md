@@ -60,3 +60,57 @@ address — новый адрес
 
 * Если запись существовала и удалена — HTTP 204 (No Content)
 * Если запись не найдена — HTTP 404
+
+
+--- 
+
+## Стркуктура проекта 
+
+```
+app/
+    services/
+        db.py ----> реализация коннектора к db
+    main.py ------> описание эндпонтов/схем
+    config.py ----> Валидация .env file 
+    .env----------> HSOT / PORT редиса !не в .gitignore
+    Dockerfile
+```
+
+
+# Запуск проекта в Docker
+из `src` 
+```bash 
+docker compose up -d  
+```
+
+# Запуск локально 
+Создание виртуального окружения
+```bash
+python3 -m venv venv 
+```
+Активация виртуального окружения
+```bash
+source venv/bin/activate
+```
+
+```bash
+cd app/
+```
+
+Установка завсимостей
+```bash
+pip install -r requirements.txt
+```
+
+Запуск сервера
+```bash
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
+
+
+# .env структура 
+
+```python
+RedisHost: str 
+RedisPort: int
+```
